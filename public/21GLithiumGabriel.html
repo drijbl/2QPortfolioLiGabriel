@@ -10,14 +10,6 @@
 
   <meta name="description" content="De La Salle University, Part of the Big 4 Universities in the Philippines">
   <style>
-
-    .home-button {
-        font-size: 1.2rem;
-        text-decoration: none;
-        color: inherit;
-        justify-content: left;
-    }
-    
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -84,32 +76,43 @@
       text-decoration: underline;
     }
 
-    .history-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .history-text {
-        font-size: 22px;
-        flex: 1;
-    }
-
-    .core-values {
-        font-size: 22px;
     main {
       padding: 25px;
     }
 
-    .history-image {
-        flex: 1;
-        text-align: right;
+    article::after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
-    .history-image img {
-        mx-width: 100%;
-        height: auto;
+    aside.pull-right {
+      float: right;
+      width: 100%;        
+      max-width: 500px;  
+      margin: 0 0 1rem 1rem; 
+    }
+
+    aside.pull-right img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    aside.pull-right figcaption {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.35rem;
+      color: #006b4f;
+    }
+
+    @media (max-width: 700px) {
+      aside.pull-right {
+        float: none;
+        width: 100%;
+        margin: 0 0 1rem 0;
+      }
     }
 
     img {
@@ -150,108 +153,152 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    aside {
+      float: right;
+      width: 40%; 
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    aside img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    aside figcaption {
+      font-size: 0.9rem;
+      color: #006b4f;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    iframe {
+      display: block;
+      margin: 0 auto;
+      border: none;
+      border-radius: 10px;
+    }
   </style>
 </head>
 
 <body>
-    <header>
-        <a class="home-button" href="../index.html">Home</a>
-    </header>
+  <header>
+    <img src="../assets/dlsu_logo.png" alt="DLSU Logo">
+    <h1>De La Salle University</h1>
+    <h2>Faith, Service, and Communion</h2>
+  </header>
 
-    <header>
-        <img src="../assets/dlsu_logo.png" alt="DLSU Logo">
-        <h1>De La Salle University</h1>
-        <h2>Faith, Service, and Communion</h2>
-    </header>
-
-    <nav>
-        <a href="">UP</a>
-        <a href="">Ateneo</a>
-        <span>La Salle</span>
-        <a href="">UST</a>
-    </nav>
+  <nav aria-label="Main Navigation">
+    <a href="">UP</a>
+    <a href="">Ateneo</a>
+    <span aria-current="page">La Salle</span>
+    <a href="">UST</a>
+  </nav>
 
   <main>
-    <section>
-      <div class="history-container">
-        <div class="history-text">
-            <h2>Short History</h2>
-            <p>
-                De La Salle University (DLSU) was founded in 1911 by the Brothers of the Christian Schools in Paco, Manila.
-                It was the first La Salle school established outside Europe and North America, providing quality education
-                for Filipino youth. The university later moved to Taft Avenue in 1921, where it continues to thrive as one
-                of the leading private institutions in the Philippines.
-            </p>
-            <p>
-                In 1973, DLSU became coeducational and has since expanded its academic programs in engineering, business,
-                science, and liberal arts. Its Lasallian mission focuses on faith, service, and commune, helping students to
-                serve as competent profressionals and holistic agents of change. 
-            </p>
-        </div>
-        <div class=history-image">
-            <img src="../assets/dlsu_campus.jpg" alt="DLSU Taft Campus">
-        </div>
-    </section>
+    <article id="">
+      <section>
+        <h2>About De La Salle University</h2>
+        <p>
+          De La Salle University (DLSU) is a prestigious private Catholic research university located in Manila, Philippines.
+          Established in 1911, it is part of the De La Salle Philippines network of Lasallian educational institutions.
+          DLSU is renowned for its strong emphasis on science, technology, engineering, and business programs, consistently
+          ranking among the top universities in the country and Asia. The university is committed to providing quality
+          education rooted in Lasallian values of faith, service, and communion.
+        </p>
+      </section>
+      
+      <aside class="pull-right">
+        <figure>
+          <img src="../assets/dlsu_campus.jpg" alt="De La Salle University Campus">
+          <figcaption>De La Salle University Main Campus in Taft Avenue, Manila</figcaption>
+        </figure>
+      </aside>
 
-    <section class="core-values">
-      <h2>Core Values</h2>
-      <p>Lasalle has three (3) main core values that guide its mission:</p>
-      <ul>
-        <li><b>Faith</b> – Integration of faith and life, guided by moral integrity and spirituality.</li>
-        <li><b>Service</b> – Commitment to serve others, especially the marginalized, with compassion and creativity.</li>
-        <li><b>Communion</b> – Unity and collaboration in pursuing the Lasallian goal of transformative education.</li>
-      </ul>
-    </section>
+      <section>
+        <h2>Short History</h2>
+        <p>
+          De La Salle University (DLSU) was founded in 1911 by the Brothers of the Christian Schools in Paco, Manila.
+          It was the first La Salle school established outside Europe and North America, providing quality education
+          for Filipino youth. The university later moved to Taft Avenue in 1921, where it continues to thrive as one
+          of the leading private institutions in the Philippines.
+        </p>
+        <p>
+          In 1973, DLSU became coeducational and has since expanded its academic programs in engineering, business,
+          science, and liberal arts. Its Lasallian mission focuses on faith, service, and commune, helping students to
+          serve as competent profressionals and holistic agents of change. 
+        </p>
+      </section>
 
-    <section>
-      <h2>Campuses</h2>
+      <section>
+        <h2>Core Values</h2>
+        <p>Lasalle has three (3) main core values that guide its mission:</p>
+        <ul>
+          <li><strong>Faith</strong> – Integration of faith and life, guided by moral integrity and spirituality.</li>
+          <li><strong>Service</strong> – Commitment to serve others, especially the marginalized, with compassion and creativity.</li>
+          <li><strong>Communion</strong> – Unity and collaboration in pursuing the Lasallian goal of transformative education.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Campuses</h2>
         <table>
+          <thead>
             <tr>
-                <th>Campus</th>
-                <th>Location</th>
-                <th>Year Founded</th>
+              <th>Campus</th>
+              <th>Location</th>
+              <th>Year Founded</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Taft Campus (Main)</td>
+              <td>Manila</td>
+              <td>1911</td>
             </tr>
             <tr>
-                <td>Taft Campus (Main)</td>
-                <td>Manila</td>
-                <td>1911</td>
+              <td>Science and Technology Complex</td>
+              <td>Biñan, Laguna</td>
+              <td>2003</td>
             </tr>
             <tr>
-                <td>Science and Technology Complex</td>
-                <td>Biñan, Laguna</td>
-                <td>2003</td>
+              <td>DLSU–Bacolod (University of St. La Salle)</td>
+              <td>Bacolod City, Negros Occidental</td>
+              <td>1952</td>
             </tr>
             <tr>
-                <td>DLSU–Bacolod (University of St. La Salle)</td>
-                <td>Bacolod City, Negros Occidental</td>
-                <td>1952</td>
+              <td>DLSU–Dasmariñas</td>
+              <td>Cavite</td>
+              <td>1977</td>
             </tr>
             <tr>
-                <td>DLSU–Dasmariñas</td>
-                <td>Cavite</td>
-                <td>1977</td>
+              <td>DLSU–Lipa</td>
+              <td>Batangas</td>
+              <td>1962</td>
             </tr>
             <tr>
-                <td>DLSU–Lipa</td>
-                <td>Batangas</td>
-                <td>1962</td>
+              <td>La Salle Green Hills</td>
+              <td>Mandaluyong City</td>
+              <td>1959</td>
             </tr>
-            <tr>
-                <td>La Salle Green Hills</td>
-                <td>Mandaluyong City</td>
-                <td>1959</td>
-            </tr>
+          </tbody>
         </table>
-    </section>
+      </section>
 
-      <p>Here’s a short video tour of DLSU:</p>
-      <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/hlb8nFvdvUo"
-        title="De La Salle University Campus Tour"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </section>
+      <section>
+        <h2>Campus Tour</h2>
+        <p>Here’s a short video tour of DLSU:</p>
+        <figure>
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/hlb8nFvdvUo"
+            title="De La Salle University Campus Tour"
+            allowfullscreen>
+          </iframe>
+        </figure>
+      </section>
+    </article>
   </main>
 
   <footer>
