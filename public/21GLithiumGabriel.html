@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Big 4: De La Salle University</title>
-  <link rel="icon" href="../asset/dlsu_logo.png" sizes="32x32">
+  <link rel="icon" href="../assets/dlsu_logo.png" sizes="32x32">
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <meta name="description" content="De La Salle University, Part of the Big 4 Universities in the Philippines">
   <style>
+
+    .home-button {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: inherit;
+        justify-content: left;
+    }
+    
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -76,8 +84,32 @@
       text-decoration: underline;
     }
 
+    .history-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .history-text {
+        font-size: 22px;
+        flex: 1;
+    }
+
+    .core-values {
+        font-size: 22px;
     main {
       padding: 25px;
+    }
+
+    .history-image {
+        flex: 1;
+        text-align: right;
+    }
+
+    .history-image img {
+        mx-width: 100%;
+        height: auto;
     }
 
     img {
@@ -122,38 +154,46 @@
 </head>
 
 <body>
-  <header>
-    <img src="../asset/dlsu_logo.png" alt="DLSU Logo">
-    <h1>De La Salle University</h1>
-    <h2>Faith, Service, and Communion</h2>
-  </header>
+    <header>
+        <a class="home-button" href="../index.html">Home</a>
+    </header>
 
-  <nav>
-    <a href="">UP</a>
-    <a href="">Ateneo</a>
-    <span>La Salle</span>
-    <a href="">UST</a>
-  </nav>
+    <header>
+        <img src="../assets/dlsu_logo.png" alt="DLSU Logo">
+        <h1>De La Salle University</h1>
+        <h2>Faith, Service, and Communion</h2>
+    </header>
+
+    <nav>
+        <a href="">UP</a>
+        <a href="">Ateneo</a>
+        <span>La Salle</span>
+        <a href="">UST</a>
+    </nav>
 
   <main>
     <section>
-      <h2>Short History</h2>
-      <p>
-        De La Salle University (DLSU) was founded in 1911 by the Brothers of the Christian Schools in Paco, Manila.
-        It was the first La Salle school established outside Europe and North America, providing quality education
-        for Filipino youth. The university later moved to Taft Avenue in 1921, where it continues to thrive as one
-        of the leading private institutions in the Philippines.
-      </p>
-      <p>
-        In 1973, DLSU became coeducational and has since expanded its academic programs in engineering, business,
-        science, and liberal arts. Its Lasallian mission focuses on faith, service, and commune, helping students to
-        serve as competent profressionals and holistic agents of change. 
-      </p>
+      <div class="history-container">
+        <div class="history-text">
+            <h2>Short History</h2>
+            <p>
+                De La Salle University (DLSU) was founded in 1911 by the Brothers of the Christian Schools in Paco, Manila.
+                It was the first La Salle school established outside Europe and North America, providing quality education
+                for Filipino youth. The university later moved to Taft Avenue in 1921, where it continues to thrive as one
+                of the leading private institutions in the Philippines.
+            </p>
+            <p>
+                In 1973, DLSU became coeducational and has since expanded its academic programs in engineering, business,
+                science, and liberal arts. Its Lasallian mission focuses on faith, service, and commune, helping students to
+                serve as competent profressionals and holistic agents of change. 
+            </p>
+        </div>
+        <div class=history-image">
+            <img src="../assets/dlsu_campus.jpg" alt="DLSU Taft Campus">
+        </div>
     </section>
 
-    <img src="asset/dlsu_campus.jpg" alt="De La Salle University Campus">
-
-    <section>
+    <section class="core-values">
       <h2>Core Values</h2>
       <p>Lasalle has three (3) main core values that guide its mission:</p>
       <ul>
