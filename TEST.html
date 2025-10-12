@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Big 4: De La Salle University</title>
   <link rel="icon" href="../assets/dlsu_logo.png" sizes="32x32">
-
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
   <meta name="description" content="De La Salle University, Part of the Big 4 Universities in the Philippines">
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -21,7 +20,7 @@
       background: linear-gradient(135deg, #007A4D, #00B373);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       position: relative;
       overflow: hidden;
     }
@@ -154,31 +153,93 @@
       text-decoration: underline;
     }
 
-    aside {
-      float: right;
-      width: 40%; 
-      margin-left: 20px;
-      margin-bottom: 10px;
-    }
-
-    aside img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    aside figcaption {
-      font-size: 0.9rem;
-      color: #006b4f;
-      text-align: center;
-      margin-top: 5px;
-    }
-
     iframe {
       display: block;
       margin: 0 auto;
       border: none;
       border-radius: 10px;
+    }
+
+    /* Core Values Section */
+    #core-values {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .values-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .value-circle {
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(135deg, #007A4D, #00B373);
+      border: 4px solid #FFD700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .value-circle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 122, 77, 0.5);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.3);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      color: #004d34;
+      border-radius: 15px;
+      padding: 25px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      color: #007A4D;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 1.5rem;
+      color: #007A4D;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #00B373;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
     }
   </style>
 </head>
@@ -199,7 +260,6 @@
 
   <main>
     <article id="dlsu-info">
-      
       <aside class="pull-right">
         <figure>
           <img src="../assets/dlsu_campus.jpg" alt="De La Salle University Campus">
@@ -226,20 +286,37 @@
         </p>
         <p>
           In 1973, DLSU became coeducational and has since expanded its academic programs in engineering, business,
-          science, and liberal arts. Its Lasallian mission focuses on faith, service, and commune, helping students to
-          serve as competent profressionals and holistic agents of change. 
+          science, and liberal arts. Its Lasallian mission focuses on faith, service, and communion, helping students to
+          serve as competent professionals and holistic agents of change. 
         </p>
       </section>
 
-      <section>
+      <!-- Interactive Core Values -->
+      <section id="core-values">
         <h2>Core Values</h2>
-        <p>Lasalle has three (3) main core values that guide its mission:</p>
-        <ul>
-          <li><strong>Faith</strong> – Integration of faith and life, guided by moral integrity and spirituality.</li>
-          <li><strong>Service</strong> – Commitment to serve others, especially the marginalized, with compassion and creativity.</li>
-          <li><strong>Communion</strong> – Unity and collaboration in pursuing the Lasallian goal of transformative education.</li>
-        </ul>
+        <p>La Salle has three (3) main core values that guide its mission:</p>
+
+        <div class="values-container">
+          <div class="value-circle" data-value="faith">
+            <h3>Faith</h3>
+          </div>
+          <div class="value-circle" data-value="service">
+            <h3>Service</h3>
+          </div>
+          <div class="value-circle" data-value="communion">
+            <h3>Communion</h3>
+          </div>
+        </div>
       </section>
+
+      <!-- Modal -->
+      <div id="value-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h3 id="modal-title"></h3>
+          <p id="modal-desc"></p>
+        </div>
+      </div>
 
       <section>
         <h2>Campuses</h2>
@@ -252,36 +329,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Taft Campus (Main)</td>
-              <td>Manila</td>
-              <td>1911</td>
-            </tr>
-            <tr>
-              <td>Science and Technology Complex</td>
-              <td>Biñan, Laguna</td>
-              <td>2003</td>
-            </tr>
-            <tr>
-              <td>DLSU–Bacolod (University of St. La Salle)</td>
-              <td>Bacolod City, Negros Occidental</td>
-              <td>1952</td>
-            </tr>
-            <tr>
-              <td>DLSU–Dasmariñas</td>
-              <td>Cavite</td>
-              <td>1977</td>
-            </tr>
-            <tr>
-              <td>DLSU–Lipa</td>
-              <td>Batangas</td>
-              <td>1962</td>
-            </tr>
-            <tr>
-              <td>La Salle Green Hills</td>
-              <td>Mandaluyong City</td>
-              <td>1959</td>
-            </tr>
+            <tr><td>Taft Campus (Main)</td><td>Manila</td><td>1911</td></tr>
+            <tr><td>Science and Technology Complex</td><td>Biñan, Laguna</td><td>2003</td></tr>
+            <tr><td>DLSU–Bacolod (University of St. La Salle)</td><td>Bacolod City, Negros Occidental</td><td>1952</td></tr>
+            <tr><td>DLSU–Dasmariñas</td><td>Cavite</td><td>1977</td></tr>
+            <tr><td>DLSU–Lipa</td><td>Batangas</td><td>1962</td></tr>
+            <tr><td>La Salle Green Hills</td><td>Mandaluyong City</td><td>1959</td></tr>
           </tbody>
         </table>
       </section>
@@ -290,11 +343,8 @@
         <h2>Campus Tour</h2>
         <p>Here’s a short video tour of DLSU:</p>
         <figure>
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/hlb8nFvdvUo"
-            title="De La Salle University Campus Tour"
-            allowfullscreen>
-          </iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hlb8nFvdvUo" 
+            title="De La Salle University Campus Tour" allowfullscreen></iframe>
         </figure>
       </section>
     </article>
@@ -307,5 +357,40 @@
       <a href="https://www.facebook.com/DLSU.Manila.100/">DLSU Facebook Page</a>
     </p>
   </footer>
+
+  <script>
+    const modal = document.getElementById("value-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const closeBtn = document.querySelector(".close-btn");
+
+    const descriptions = {
+      faith: "Integration of faith and life, guided by moral integrity and spirituality.",
+      service: "Commitment to serve others, especially the marginalized, with compassion and creativity.",
+      communion: "Unity and collaboration in pursuing the Lasallian goal of transformative education."
+    };
+
+    document.querySelectorAll(".value-circle").forEach(circle => {
+      circle.addEventListener("click", () => {
+        const value = circle.getAttribute("data-value");
+        modalTitle.textContent = value.charAt(0).toUpperCase() + value.slice(1);
+        modalDesc.textContent = descriptions[value];
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    window.addEventListener("click", e => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  </script>
 </body>
 </html>
