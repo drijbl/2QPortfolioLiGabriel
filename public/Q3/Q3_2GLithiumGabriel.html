@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q3 2nd Graded Exercise</title>
+    <meta name="description" content="Designing an HTML form">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #dbeafe, #f0f9ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 25px;
+            color: #1e3a8a;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #374151;
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 650px;
+            margin: auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        fieldset {
+            border: 2px solid #c7d2fe;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #1e40af;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            color: #111827;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #9ca3af;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border: 2px solid #2563eb;
+            background-color: #eff6ff;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .radio-group {
+            margin-top: 5px;
+        }
+
+        .error {
+            border: 2px solid #dc2626;
+            background-color: #fee2e2;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: #6b7280;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+
+    <script>
+        function confirmSubmit() {
+            return confirm("Do you want to submit your club application?");
+        }
+
+        function confirmReset() {
+            if (confirm("This will clear all fields. Do you want to continue?")) {
+                const fields = document.querySelectorAll(".error");
+                fields.forEach(field => field.classList.remove("error"));
+                return true;
+            }
+            return false;
+        }
+
+        function checkEmpty(field) {
+            if (field.value.trim() === "") {
+                field.classList.add("error");
+            } else {
+                field.classList.remove("error");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<h1>Club Application Form</h1>
+<p class="subtitle">Please complete all required fields before submitting</p>
+
+<form method="post" action="submit" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
+
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label>
+            Student ID
+            <input type="number" name="studentID" placeholder="Enter your student ID number" required onblur="checkEmpty(this)">
+        </label>
+
+        <label>
+            Full Name
+            <input type="text" name="fullName" placeholder="Last Name, First Name, Middle Name" required onblur="checkEmpty(this)">
+        </label>
+
+        <label>
+            Birthday
+            <input type="date" name="birthday" required>
+        </label>
+
+        <label>
+            Email Address
+            <input type="email" name="email" placeholder="example@email.com" required>
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Academic and Club Information</legend>
+
+        <label>
+            Mobile Phone
+            <input type="text" name="mobilePhone" placeholder="09XXXXXXXXX" required onblur="checkEmpty(this)">
+        </label>
+
+        <label>
+            Grade Level
+            <select name="gradeLevel" required>
+                <option value="">Select Grade Level</option>
+                <option value="g7">7</option>
+                <option value="g8">8</option>
+                <option value="g9">9</option>
+                <option value="g10">10</option>
+                <option value="g11">11</option>
+                <option value="g12">12</option>
+            </select>
+        </label>
+
+        <label>
+            Intern / Extern
+            <div class="radio-group">
+                <input type="radio" name="status" value="INT" required> Intern
+                <input type="radio" name="status" value="EXT" required> Extern
+            </div>
+        </label>
+
+        <label>
+            Preferred Organization / Club
+            <select name="club" required>
+                <option value="">Select a Club</option>
+                <option value="astro">AstroSoc</option>
+                <option value="eng">Ellipsis</option>
+                <option value="math">Math Club</option>
+                <option value="res">SARS+</option>
+                <option value="badminton">Volant</option>
+            </select>
+        </label>
+
+        <label>
+            Why do you want to join?
+            <textarea name="reason" rows="4" placeholder="State your motivation and expectations" required onblur="checkEmpty(this)"></textarea>
+        </label>
+    </fieldset>
+
+    <div class="buttons">
+        <button type="submit">Submit Application</button>
+        <button type="reset">Reset Form</button>
+    </div>
+
+</form>
+
+</body>
+</html>
